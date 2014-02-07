@@ -9,9 +9,7 @@ class CardController
   end
 
   def got_term_right(term)
-    puts deck.cards.length
     deck.delete_card_from_deck(term)
-    puts deck.cards.length
   end
 
   def display_definition
@@ -23,11 +21,9 @@ class CardController
     term.downcase == self.term_store.downcase
   end
 
-
   def pull_card
     a = deck.pull_random_card
     self.definition_store = a[1]
     self.term_store = a[0]
   end
 end
-

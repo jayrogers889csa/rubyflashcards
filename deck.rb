@@ -20,6 +20,10 @@ class Deck
     self.cards.delete_if { |card| card.term == term }
   end
 
+  def delete_card_from_deck(term)
+    self.cards.delete_if { |card| card.term == term }
+  end
+
   def shuffle_cards!
     self.cards.shuffle!
   end
