@@ -1,7 +1,12 @@
-# require_relative
+require_relative 'deck.rb'
 
 class CardController
   attr_accessor :definition_store, :term_store
+  attr_reader :deck
+
+  def initialize
+    @deck = Deck.new('flashcard_samples.txt')
+  end
 
 
   def display_definition
@@ -10,14 +15,16 @@ class CardController
   end
 
   def check_guess(term)
-    term.downcase == term_store.downcase
+    term.downcase == self.term_store.downcase
   end
 
 
   def pull_card
-    a = ["BEGIN", "Designates code that must be run unconditionally at the beginning of the program before any other."]
+    a = deck.pull_random_card
+    # p a
     self.definition_store = a[1]
     self.term_store = a[0]
+    # puts term_store.downcase
   end
 end
 

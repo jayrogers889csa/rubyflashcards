@@ -48,6 +48,9 @@ class CardUI
       system("cowsay 'YOU GOT IT RIGHT, BRO!'")
     else
       puts "I sorry...life sucks and you got it wrong"
+      puts "Have a train."
+      sleep(2)
+      system('sl')
     end
   end
 

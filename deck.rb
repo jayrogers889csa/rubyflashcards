@@ -16,7 +16,7 @@ class Deck
    file =  File.open(filename)
    slices = []
    file.readlines.each_slice(3) { |slice| slices << slice }
-   slices.each {|slice| self.cards << Card.new(slice[1], slice[0])}
+   slices.each {|slice| self.cards << Card.new(slice[1].chomp, slice[0].chomp)}
   end
 
   def shuffle_cards!
@@ -44,17 +44,3 @@ class Card
   end
 
 end
-
-deck = Deck.new('flashcard_samples.txt')
-p deck.cards
-
-puts "--------------------"
-p deck.shuffle_cards!
-
-puts "------------------"
-# p deck.pull_random_card
-p deck.pull_next_card!
-puts "-----------------------"
-p deck.cards
-
-p deck.pull_random_card
