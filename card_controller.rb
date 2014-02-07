@@ -8,6 +8,11 @@ class CardController
     @deck = Deck.new('flashcard_samples.txt')
   end
 
+  def got_term_right(term)
+    puts deck.cards.length
+    deck.delete_card_from_deck(term)
+    puts deck.cards.length
+  end
 
   def display_definition
     self.pull_card
@@ -18,13 +23,9 @@ class CardController
     term.downcase == self.term_store.downcase
   end
 
-
   def pull_card
     a = deck.pull_random_card
-    # p a
     self.definition_store = a[1]
     self.term_store = a[0]
-    # puts term_store.downcase
   end
 end
-
