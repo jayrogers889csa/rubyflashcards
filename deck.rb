@@ -1,5 +1,3 @@
-# Main file for
-
 class Deck
 
   attr_accessor :cards, :new_card
@@ -8,7 +6,6 @@ class Deck
   def initialize(filename)
     @filename = filename
     @cards = []
-    # @new_card = Card.new
     load_cards
   end
 
@@ -16,7 +13,11 @@ class Deck
    file =  File.open(filename)
    slices = []
    file.readlines.each_slice(3) { |slice| slices << slice }
-   slices.each {|slice| self.cards << Card.new(slice[1].chomp, slice[0].chompge)}
+   slices.each {|slice| self.cards << Card.new(slice[1].chomp, slice[0].chomp)}
+  end
+
+  def delete_card_from_deck(term)
+    self.cards.delete_if { |card| card.term == term }
   end
 
   def shuffle_cards!

@@ -8,6 +8,11 @@ class CardController
     @deck = Deck.new('flashcard_samples.txt')
   end
 
+  def got_term_right(term)
+    puts deck.cards.length
+    deck.delete_card_from_deck(term)
+    puts deck.cards.length
+  end
 
   def display_definition
     self.pull_card

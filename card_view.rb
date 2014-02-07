@@ -40,6 +40,7 @@ module CardView
     if controller.check_guess(term)
       puts "YEAAAAHH You got it right!"
       self.score += 1
+      controller.got_term_right(term)
       random = rand(2)
       case random
       when 0
