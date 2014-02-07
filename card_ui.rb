@@ -26,18 +26,7 @@ class CardUI
     end
   end
 
-  def guess_term(term)
-    if controller.check_guess(term)
-      puts "YEAAAAHH You got it right!"
-      self.score += 1
-      system("cowsay 'YOU GOT IT RIGHT, BRO!'")
-    else
-      puts "I sorry...life sucks and you got it wrong"
-      puts "Have a train."
-      sleep(2)
-      system('sl')
-    end
-  end
+
 end
 
 game = CardUI.new(CardController.new)

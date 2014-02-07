@@ -35,4 +35,24 @@ module CardView
   def show_score
     puts "\e[5m\e[7m==SCORE: #{score}==\033[0m"
   end
+
+   def guess_term(term)
+    if controller.check_guess(term)
+      puts "YEAAAAHH You got it right!"
+      self.score += 1
+      random = rand(2)
+      case random
+      when 0
+        system("cowsay 'YOU GOT IT RIGHT, BRO!'")
+      when 1
+        system("cowsay -f sheep 'MUCH SHEEP! ANSWER VERY WOW!'")
+      end
+    else
+      puts "I sorry...life sucks and you got it wrong"
+      puts "Have a train....cause you need to train more...."
+      puts "Want some aloe for that burn?"
+      sleep(2)
+      system('sl')
+    end
+  end
 end

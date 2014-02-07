@@ -16,7 +16,7 @@ class Deck
    file =  File.open(filename)
    slices = []
    file.readlines.each_slice(3) { |slice| slices << slice }
-   slices.each {|slice| self.cards << Card.new(slice[1].chomp, slice[0].chomp)}
+   slices.each {|slice| self.cards << Card.new(slice[1].chomp, slice[0].chompge)}
   end
 
   def shuffle_cards!
