@@ -18,6 +18,10 @@ class Deck
    file.readlines.each_slice(3) { |slice| slices << slice }
    slices.each {|slice| self.cards << Card.new(slice[1].chomp, slice[0].chomp)}
   end
+  
+  def delete_card_from_deck(term)
+    self.cards.delete_if { |card| card.term == term }
+  end
 
   def shuffle_cards!
     self.cards.shuffle!
