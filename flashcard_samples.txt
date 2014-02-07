@@ -110,4 +110,8 @@ Takes a condition argument, and executes the code that follows (up to a matching
 while
 
 Called from inside a method body, yields control to the code block (if any) supplied as part of the method call. If no code block has been supplied, calling yield raises an exception.
+<<<<<<< HEAD
 yield
+=======
+yield
+>>>>>>> 13cc2a8887a7e456690b15239674e9dea4fa4694
