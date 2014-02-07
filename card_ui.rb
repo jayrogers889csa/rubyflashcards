@@ -1,7 +1,9 @@
 require_relative 'card_controller.rb'
+require_relative 'card_view.rb'
 
 class CardUI
-  attr_reader :controller
+  include CardView
+  attr_reader :controller, :view
   attr_accessor :score
 
   def initialize(control)
@@ -15,30 +17,13 @@ class CardUI
       move_to_home!
       show_score
       show_definition
+      puts controller.display_definition
       question_prompt
       guess_term(gets.chomp)
       continue_or_end_prompt
       user_choice = gets.chomp.downcase
       break if user_choice == "q"
     end
-  end
-
-  def show_score
-    puts "\e[5m\e[7m==SCORE: #{score}==\033[0m"
-  end
-
-  def continue_or_end_prompt
-    puts "Press enter to continue, \"q\" to quit"
-  end
-
-  def question_prompt
-    puts "\e[31mChoose your fate:\033[0m"
-  end
-
-  def show_definition
-    puts "\e[95m-The definition is:\033[0m"
-    #andrew.kill(eric\'s_puppy)
-    puts controller.display_definition
   end
 
   def guess_term(term)
@@ -53,15 +38,6 @@ class CardUI
       system('sl')
     end
   end
-
-  def clear_screen!
-    print "\e[2J"
-  end
-
-  def move_to_home!
-    print "\e[H"
-  end
-
 end
 
 game = CardUI.new(CardController.new)
